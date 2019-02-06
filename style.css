@@ -1,0 +1,61 @@
+#barre, #liste, #affichage {
+	padding:1px 0;
+}
+#barre {
+	background-color:#FF9900;
+	text-align:center;
+	height:15%;
+}
+#menu {
+	max-width:100%;
+	margin:auto;
+	height:75%;
+}
+#liste  {
+	float:left;
+	width:30%;
+	background-color:#FF3366;
+	height:100%;
+}
+#affichage {
+	margin-left:35%;
+	background-color:#9966FF;
+	height:100%;
+}
+#croix{
+	float:right;
+	margin-right:10px;	
+}
+ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+	width:100%	
+}
+
+#formulaireConnexion
+{
+	text-align:center;
+}
+
+body{
+	margin: 0;
+}
+
+html{
+	font-family:calibri;
+	background-color:silver;
+}
+
+#connexion{
+	text-align:center;
+}
+
+#divConnexion{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	margin-top:20%;
+	
+}
+

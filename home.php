@@ -19,11 +19,11 @@ catch (Exception $e)
 if (isset($_GET["user"])){
 	$user = $_GET["user"];
 }
-
+/*
 if (isset($_POST["message"]) && (isset($_POST["destinataire"]))){    
 	$req = $bdd->prepare('INSERT INTO donnee (destinataire,expediteur,date,message) VALUES (?,?,NOW(),?)');
 	$req->execute(array($_POST["destinataire"],$user,$_POST["message"]));
-}
+}*/
 ?>
 <html>
 	<head>
@@ -72,26 +72,33 @@ if (isset($_POST["message"]) && (isset($_POST["destinataire"]))){
 					if (xhr.readyState == 4) {
 						 Recu(user);
 					}
-				}	
-				
+				}
 			}
-			
-						
+							
 			function envoyer(){
-				
-				
+				formElement = document.getElementById("formulaire");
+				xhr = new XMLHttpRequest();
+				xhr.open("POST", "envoyer.php");
+				xhr.send(new FormData(formElement));
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState == 4) {
+						document.getElementById('textMessage').value="";
+						document.getElementById('textDestinataire').value=""
+					}
+				}
+				return false;
 			}
+		
 			
 			
 		</script>
 	
 		<div id="barre">
-			<a href="#" onClick="NouveauMessage('<?=$user?>')">Nouveau message</a>
-			<a href="#" onClick="Recu('<?=$user?>')">Boite de réception</a>
+			<a href="#" class="btnBar" onClick="NouveauMessage('<?=$user?>')">Nouveau message</a>
+			<a href="#" class="btnBar" onClick="Recu('<?=$user?>')">Boite de réception</a>
 		</div>
 		<div id="menu">
 			 <div id="liste">
-			  
 			 </div>
 			 <div id="affichage">
 			  

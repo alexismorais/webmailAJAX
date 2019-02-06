@@ -19,4 +19,6 @@ if (isset($_POST["message"]) && (isset($_POST["destinataire"])) && (isset($_POST
 	$req = $bdd->prepare('INSERT INTO donnee (destinataire,expediteur,date,message) VALUES (?,?,NOW(),?)');
 	$req->execute(array($_POST["destinataire"],$_POST["user"],$_POST["message"]));
 }
+
+
 ?>

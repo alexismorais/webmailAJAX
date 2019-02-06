@@ -4,15 +4,17 @@
 	</head>
 	<body>
 	<div  id="divConnexion">
-		<h1 id="connexion">CONNEXION</h1>
+<fieldset>
+ <legend>Connexion</legend>
 		<form id="formulaireConnexion" action="home.php" method="get">
-					<label>Nom :</label>
+					<label>Nom</label>
 					<br/>
 					<input  type="text" name="user" maxlength="20"/>
 					<br/>
 					<br/>
-					<input type="submit" value="Connexion"/>
+					<input class="btn" type="submit" value="Connexion"/>
 		</form>
+</fieldset>
 	</div>
 	
 	</body>

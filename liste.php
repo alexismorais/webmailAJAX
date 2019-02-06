@@ -32,7 +32,7 @@ if (isset($_GET["user"])){
 				<a id=\"selectionMail\"  href=\"#\" onclick=\"affichageRecu(".$donnees['id'].")\">
 					Le ".$donnees['date']." <b>".$donnees['expediteur']."</b> : ".$apercu."
 				</a>
-				<a id=\"croix\" onClick=\"supprimer(".$donnees['id'].",'".$user."')\" href=\"#\">
+				<a id=\"croix\" onclick=\"supprimer(".$donnees['id'].",'".$user."')\" href=\"#\">
 				x
 				</a>
 			</li>";   
@@ -44,6 +44,7 @@ if (isset($_GET["user"])){
 
 
 ?>
+<button class="btn" type="button" onclick="Recu('<?=$user?>')">Recevoir</button>
 <ul>
 	<?=$liste?>
 </ul>

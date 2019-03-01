@@ -25,7 +25,7 @@ if (isset($_POST["message"]) && (isset($_POST["destinataire"]))){
 	$req->execute(array($_POST["destinataire"],$user,$_POST["message"]));
 }*/
 ?>
-<html>
+<html id="pageHome">
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
@@ -33,7 +33,7 @@ if (isset($_POST["message"]) && (isset($_POST["destinataire"]))){
 		<script>
 			function Recu(user){
 				xhr = new XMLHttpRequest();
-				xhr.open('GET', 'http://localhost/liste.php?user=' + user);
+				xhr.open('GET', 'http://localhost/mail/liste.php?user=' + user);
 				xhr.send(null);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState == 4) {
@@ -44,7 +44,7 @@ if (isset($_POST["message"]) && (isset($_POST["destinataire"]))){
 			
 			function affichageRecu(id){
 				xhr = new XMLHttpRequest();
-				xhr.open('GET', 'http://localhost/affichageMessage.php?id=' + id);
+				xhr.open('GET', 'http://localhost/mail/affichageMessage.php?id=' + id);
 				xhr.send(null);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState == 4) {
@@ -55,7 +55,7 @@ if (isset($_POST["message"]) && (isset($_POST["destinataire"]))){
 			
 			function NouveauMessage(user){
 				xhr = new XMLHttpRequest();
-				xhr.open('GET', 'http://localhost/nouveauMessage.php?user=' + user);
+				xhr.open('GET', 'http://localhost/mail/nouveauMessage.php?user=' + user);
 				xhr.send(null);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState == 4) {
@@ -66,11 +66,12 @@ if (isset($_POST["message"]) && (isset($_POST["destinataire"]))){
 			
 			function supprimer(id,user){
 				xhr = new XMLHttpRequest();
-				xhr.open('DELETE', 'http://localhost/supprimer.php?id=' + id);
+				xhr.open('DELETE', 'http://localhost/mail/supprimer.php?id=' + id);
 				xhr.send(null);
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState == 4) {
 						 Recu(user);
+						 document.getElementById('affichage').innerHTML = "";
 					}
 				}
 			}
@@ -83,7 +84,7 @@ if (isset($_POST["message"]) && (isset($_POST["destinataire"]))){
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState == 4) {
 						document.getElementById('textMessage').value="";
-						document.getElementById('textDestinataire').value=""
+						document.getElementById('textDestinataire').value="";
 					}
 				}
 				return false;
@@ -94,11 +95,13 @@ if (isset($_POST["message"]) && (isset($_POST["destinataire"]))){
 		</script>
 	
 		<div id="barre">
+			</br>
 			<a href="#" class="btnBar" onClick="NouveauMessage('<?=$user?>')">Nouveau message</a>
 			<a href="#" class="btnBar" onClick="Recu('<?=$user?>')">Boite de réception</a>
+			<a href="index.php" class="btnBar">Deconnexion</a>
 		</div>
 		<div id="menu">
-			 <div id="liste">
+			 <div id="liste" style="overflow:auto">
 			 </div>
 			 <div id="affichage">
 			  

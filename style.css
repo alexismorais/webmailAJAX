@@ -1,34 +1,38 @@
-#barre, #liste, #affichage {
-	padding:1px 0;
-}
+
 #barre {
-	background-color:#FF9900;
+	background-color:#696969;
 	text-align:center;
-	height:15%;
+	height:10%;
+	border-bottom:solid;
 	
 }
 #menu {
 	max-width:100%;
-	margin:auto;
-	height:75%;
+	height:85%;
 	
 }
 #liste  {
 	float:left;
 	width:30%;
-	background-color:#FF3366;
+	background-color:#8B0000;
 	height:100%;
-	padding:5px;
+	padding:1%;
 }
 #affichage {
-	margin-left:35%;
-	background-color:#9966FF;
-	height:100%;
-	padding-left:20px;
+	margin-left:32%;
+	background-color:8B0000;
+	height:95%;
+	padding-top:2%;
+	padding-bottom:2%;
+	overflow:hidden;
+
+		
 }
 #croix{
 	float:right;
 	margin-right:10px;	
+	color:#8B0000;
+	font-size:2em;
 }
 ul{
 	list-style:none;
@@ -43,7 +47,7 @@ ul{
 }
 
 body{
-	margin: 0;
+	margin:0;
 }
 
 html{
@@ -65,26 +69,108 @@ html{
 a
 {
 	text-decoration:none;
+	
 }
-#croix{
-	background-color:red;
-}
+
 .btn{
 	padding:6px 0 6px 0;
 	font:bold 13px Arial;
-	background:#f5f5f5;
-	color:#555;
+	background:#8B0000;
+	color:white;
 	border-radius:2px;
 	width:100px;
-	border:1px solid #ccc;
+	border:1px solid grey;
 	box-shadow:1px 1px 3px #999;
 	
 }
 
 .btnBar{
+	color:white;
 	border:2px solid grey;
 	border-radius:4px;
 	padding:6px;
-	background-color:white;
+	background-color:#8B0000;
 }
 
+#divListe{
+	background-color:#696969;
+	margin-bottom:5px;
+	width:100%;
+	height:10%;
+	border:1px solid black;
+	overflow:hidden;
+	padding-top:5px;
+	padding-left:5px;
+}
+
+#selectionMail{
+	color:white;
+	
+	padding-bottom:10%;
+	width:90%;
+	
+}
+
+#pageConnexion{
+	background-color:#696969;
+	color:white;
+}
+
+#pageHome{
+	background-color:#8B0000;
+}
+
+
+
+
+
+#textMessage{
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+	height:63%;
+}
+
+#destinataire{
+	margin-left:auto;
+	margin-right:auto;
+	width:30%;
+	
+}
+#divAffichage{
+	color:white;
+	background-color:#696969;
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+	padding:5%;
+}
+#labelDestinataire{
+	margin-left:auto;
+	margin-right:auto;
+	width:50%;
+}
+
+#btnEnvoyer{
+	float:right;
+	padding:6px 0 6px 0;
+	font:bold 13px Arial;
+	background:#8B0000;
+	color:white;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:2px;
+	width:100px;
+	border:1px solid grey;
+	box-shadow:1px 1px 3px #999;
+	
+}
+
+#divAffichageMessage{
+	background-color:white;
+	color:black;
+	height:80%;
+	padding-left:20px;
+	padding-top:10px;
+	overflow:hidden;
+}

@@ -28,14 +28,15 @@ if (isset($_GET["user"])){
 		}
         
 		$liste .= "
-			<li>
+			<div id=\"divListe\">
 				<a id=\"selectionMail\"  href=\"#\" onclick=\"affichageRecu(".$donnees['id'].")\">
 					Le ".$donnees['date']." <b>".$donnees['expediteur']."</b> : ".$apercu."
 				</a>
 				<a id=\"croix\" onclick=\"supprimer(".$donnees['id'].",'".$user."')\" href=\"#\">
 				x
 				</a>
-			</li>";   
+			</div>
+			";   
 	}
 }
 
@@ -44,7 +45,7 @@ if (isset($_GET["user"])){
 
 
 ?>
+<!--
 <button class="btn" type="button" onclick="Recu('<?=$user?>')">Recevoir</button>
-<ul>
-	<?=$liste?>
-</ul>
+-->
+<?=$liste?>

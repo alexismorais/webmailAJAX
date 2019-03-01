@@ -19,7 +19,7 @@ if(isset($_GET["id"])){
 	$req -> execute(array($_GET["id"]));
 
 	while ($donnees = $req->fetch()) {
-	echo  "<p>Le : ".$donnees['date']."<br/>De : <b>".$donnees['expediteur']."</b><br/>A : <b>".$donnees['destinataire']."</b><br/><br/>".$donnees['message']."</p>";
+	echo  "<div id=\"divAffichage\"><div id=\"divAffichageMessage\"><p>Le : ".$donnees['date']."<br/>De : <b>".$donnees['expediteur']."</b><br/>A : <b>".$donnees['destinataire']."</b><br/><br/>".$donnees['message']."</p></div></div>";
 	}
 }	
 ?>

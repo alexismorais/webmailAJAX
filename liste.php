@@ -20,14 +20,17 @@ if (isset($_GET["user"])){
 
 	$req = $bdd->prepare("SELECT * FROM donnee WHERE destinataire=? ORDER BY date DESC");
 	$req->execute(array($_GET["user"]));
-	
+	$data =  array();
+
 	while ($donnees = $req->fetch()) {
 		$apercu = substr($donnees['message'], 0, 20);
 		if(strlen($donnees['message'])>20){
 			$apercu .="...";
 		}
         
-		$liste .= "
+		array_push($data, array('date' => $donnees['date'], 'expediteur' => $donnees['expediteur'],'user' => $user,'message' => $donnees['message'],'id' => $donnees['id'],'apercu' => $apercu));
+
+	/*	$liste .= "
 			<div id=\"divListe\">
 				<a id=\"selectionMail\"  href=\"#\" onclick=\"affichageRecu(".$donnees['id'].")\">
 					Le ".$donnees['date']." <b>".$donnees['expediteur']."</b> : ".$apercu."
@@ -36,7 +39,7 @@ if (isset($_GET["user"])){
 				x
 				</a>
 			</div>
-			";   
+			";   */
 	}
 }
 
@@ -48,4 +51,4 @@ if (isset($_GET["user"])){
 <!--
 <button class="btn" type="button" onclick="Recu('<?=$user?>')">Recevoir</button>
 -->
-<?=$liste?>
+<?= count($data) ?>

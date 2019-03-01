@@ -6,6 +6,7 @@ $dbpass = "123";
 $db = "mail";
 $user = "";
 $liste = "";
+$data = array();
 
 if (isset($_GET["user"])){
 	$user = $_GET["user"];
@@ -20,7 +21,7 @@ if (isset($_GET["user"])){
 
 	$req = $bdd->prepare("SELECT * FROM donnee WHERE destinataire=? ORDER BY date DESC");
 	$req->execute(array($_GET["user"]));
-	$data =  array();
+	
 
 	while ($donnees = $req->fetch()) {
 		$apercu = substr($donnees['message'], 0, 20);
@@ -28,7 +29,14 @@ if (isset($_GET["user"])){
 			$apercu .="...";
 		}
         
-		array_push($data, array('date' => $donnees['date'], 'expediteur' => $donnees['expediteur'],'user' => $user,'message' => $donnees['message'],'id' => $donnees['id'],'apercu' => $apercu));
+		array_push($data, array(
+			'date' => $donnees['date'], 
+			'expediteur' => $donnees['expediteur'],
+			'user' => $user,
+			'message' => $donnees['message'],
+			'id' => $donnees['id'],
+			'apercu' => $apercu
+		));
 
 	/*	$liste .= "
 			<div id=\"divListe\">
